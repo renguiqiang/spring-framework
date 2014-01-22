@@ -1,0 +1,15 @@
+1. BeanFactory 作为spring的bean容器类，提供了在获取bean的时候的模板步骤，主要表现为对一些接口方法的处理：
+   如：InitiaLizingBean、DisposableBean、*awareBean、FactoryPostProcess、BeanPostProcess等
+
+2. ApplicationContext 主要作用是对BeanFactory的属性注入和生命期的管理，如：
+   1> 读取Context文件，将BeanDefinition注入到BeanFactory中
+   2> 注入BeanFactory属性，如各种postProcessor等
+   
+3. Aop借助BeanFactory和context，通过实现postProcessor类创建AopAutoProxyCreator方法。
+   Aop通过定义了各种advice方法，来实现了方法的各种环绕方式。
+   AopAutoProxyCreator以模板方式处理各种类型的advice方法的处理，实现了前置、后置和环绕处理。
+   
+4. spring事务处理
+   以Aop处理为基础，同实现advice类的Transaction接口，定义了事务处理的一般方法步骤。
+   通过声明方式注入事务隔离方式、传播方式、事务连接方法，实现了事务方法的处理。
+   

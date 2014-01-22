@@ -1,0 +1,13 @@
+1. 通过getBean创建获取代理过程，如hello：
+   第一步：BeanFactory创建bean hello
+   第二步：对bean进行postprocess的后处理。
+       即：通过遍历所有的BeanPostProcess，依次对hello进行后处理。
+	   AutoProxyCreator对hello进行后处理操作：
+	   1. 获取所有代理对象及其对应的代理拦截器
+	   2. 判读当前bean，即hello是否在对应的代理对象中，
+	      如果匹配，则设置返回对应拦截器对象
+		  否则拦截器对象返回为空。
+   第三步：初始化ProxyFactory，创建proxy对象
+       1. 通过specificInterceptors构建Advisors，设置proxyFactory参数
+
+2. 事务的处理完全交给TransactionInterceptor来处理，invoke方法实现对目标方法前后和目标方法的处理。

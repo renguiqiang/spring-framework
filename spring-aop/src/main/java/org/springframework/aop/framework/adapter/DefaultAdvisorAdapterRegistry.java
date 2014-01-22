@@ -27,6 +27,13 @@ import org.springframework.aop.Advisor;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
 
 /**
+ * Advice 与  Advisor的转换适配，包括
+ * MethodInterceptor 与  Advisor的适配
+ * MethodBeforeAdvice 与 Advisor的适配
+ * AfterReturningAdvice 与 Advisor的适配
+ * ThrowsAdvice 与 Advisor的适配
+ * 最终： return new DefaultPointcutAdvisor(advice);
+ * 
  * Default implementation of the {@link AdvisorAdapterRegistry} interface.
  * Supports {@link org.aopalliance.intercept.MethodInterceptor},
  * {@link org.springframework.aop.MethodBeforeAdvice},

@@ -29,6 +29,9 @@ import java.io.Serializable;
 import java.util.Properties;
 
 /**
+ * 事务处理拦截器，拦截所有的方法调用，根据事务规则设置设置处理方式
+ * 
+ * 
  * AOP Alliance MethodInterceptor for declarative transaction
  * management using the common Spring transaction infrastructure
  * ({@link org.springframework.transaction.PlatformTransactionManager}).
